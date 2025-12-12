@@ -139,6 +139,12 @@
             // cbPilihProyek
             // 
             this.cbPilihProyek.FormattingEnabled = true;
+            this.cbPilihProyek.Items.AddRange(new object[] {
+            "Web Company Profile",
+            "Sistem Parkir QR",
+            "IoT Agriculture App",
+            "E-Commerce Startup",
+            "AI Fraud Detection"});
             this.cbPilihProyek.Location = new System.Drawing.Point(124, 56);
             this.cbPilihProyek.Name = "cbPilihProyek";
             this.cbPilihProyek.Size = new System.Drawing.Size(123, 21);

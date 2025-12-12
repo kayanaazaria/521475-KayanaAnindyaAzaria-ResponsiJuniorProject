@@ -19,7 +19,7 @@ namespace ResponsiJunproKay
                 string sql = "SELECT * FROM dev_select()";
                 using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
                 {
-                    NpgsqlDataAdapter reader = cmd.ExecuteReader();
+                    NpgsqlDataReader reader = cmd.ExecuteReader();
                     dt.Load(reader);
                 }
             }

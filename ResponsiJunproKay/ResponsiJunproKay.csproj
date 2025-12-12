@@ -97,6 +97,7 @@
   <ItemGroup>
     <Compile Include="ConnectionDB.cs" />
     <Compile Include="Developer.cs" />
+    <Compile Include="DeveloperRepository.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

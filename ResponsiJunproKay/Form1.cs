@@ -32,12 +32,18 @@ namespace ResponsiJunproKay
 
             if (dgvDaftarPerformaTim.Columns.Count > 0)
             {
-                dgvDaftarPerformaTim.Columns["id_dev"].HeaderText = "ID Developer";
-                dgvDaftarPerformaTim.Columns["nama"].HeaderText = "Nama Developer";
-                dgvDaftarPerformaTim.Columns["status_kontrak"].HeaderText = "Status Kontrak";
-                dgvDaftarPerformaTim.Columns["fitur_selesai"].HeaderText = "Fitur Selesai";
-                dgvDaftarPerformaTim.Columns["jumlah_bug"].HeaderText = "Jumlah Bug";
-                dgvDaftarPerformaTim.Columns["id_proyek"].HeaderText = "ID Proyek";
+                if (dgvDaftarPerformaTim.Columns["id_dev"] != null)
+                    dgvDaftarPerformaTim.Columns["id_dev"].HeaderText = "ID Developer";
+                if (dgvDaftarPerformaTim.Columns["nama"] != null)
+                    dgvDaftarPerformaTim.Columns["nama"].HeaderText = "Nama Developer";
+                if (dgvDaftarPerformaTim.Columns["status_kontrak"] != null)
+                    dgvDaftarPerformaTim.Columns["status_kontrak"].HeaderText = "Status Kontrak";
+                if (dgvDaftarPerformaTim.Columns["fitur_selesai"] != null)
+                    dgvDaftarPerformaTim.Columns["fitur_selesai"].HeaderText = "Fitur Selesai";
+                if (dgvDaftarPerformaTim.Columns["jumlah_bug"] != null)
+                    dgvDaftarPerformaTim.Columns["jumlah_bug"].HeaderText = "Jumlah Bug";
+                if (dgvDaftarPerformaTim.Columns["id_proyek"] != null)
+                    dgvDaftarPerformaTim.Columns["id_proyek"].HeaderText = "ID Proyek";
             }
         }
 
@@ -163,12 +169,20 @@ namespace ResponsiJunproKay
             {
                 DataGridViewRow row = dgvDaftarPerformaTim.Rows[e.RowIndex];
                 selectedDeveloper = new Developer();
-                selectedDeveloper.IdDev = row.Cells["id_dev"].Value.ToString();
-                selectedDeveloper.NamaDeveloper = row.Cells["nama"].Value.ToString();
-                selectedDeveloper.StatusKontrak = row.Cells["status_kontrak"].Value.ToString();
-                selectedDeveloper.FiturSelesai = Convert.ToInt32(row.Cells["fitur_selesai"].Value);
-                selectedDeveloper.JumlahBug = Convert.ToInt32(row.Cells["jumlah_bug"].Value);
-                selectedDeveloper.IdProyek = Convert.ToInt32(row.Cells["id_proyek"].Value);
+                
+                if (row.Cells["id_dev"] != null && row.Cells["id_dev"].Value != null)
+                    selectedDeveloper.IdDev = row.Cells["id_dev"].Value.ToString();
+                if (row.Cells["nama"] != null && row.Cells["nama"].Value != null)
+                    selectedDeveloper.NamaDeveloper = row.Cells["nama"].Value.ToString();
+                if (row.Cells["status_kontrak"] != null && row.Cells["status_kontrak"].Value != null)
+                    selectedDeveloper.StatusKontrak = row.Cells["status_kontrak"].Value.ToString();
+                if (row.Cells["fitur_selesai"] != null && row.Cells["fitur_selesai"].Value != null)
+                    selectedDeveloper.FiturSelesai = Convert.ToInt32(row.Cells["fitur_selesai"].Value);
+                if (row.Cells["jumlah_bug"] != null && row.Cells["jumlah_bug"].Value != null)
+                    selectedDeveloper.JumlahBug = Convert.ToInt32(row.Cells["jumlah_bug"].Value);
+                if (row.Cells["id_proyek"] != null && row.Cells["id_proyek"].Value != null)
+                    selectedDeveloper.IdProyek = Convert.ToInt32(row.Cells["id_proyek"].Value);
+                
                 tbNamaDeveloper.Text = selectedDeveloper.NamaDeveloper;
                 cbStatusKontrak.Text = selectedDeveloper.StatusKontrak;
                 switch (selectedDeveloper.IdProyek)
@@ -192,6 +206,7 @@ namespace ResponsiJunproKay
                         cbPilihProyek.SelectedIndex = -1;
                         break;
                 }
+            }
         }
     }
 }
